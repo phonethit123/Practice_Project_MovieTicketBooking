@@ -1,0 +1,23 @@
+﻿@page "/"
+@inject PageChangeStateContainer StateContainer
+@implements IDisposable
+
+@switch (StateContainer.CurrentPage)
+{
+    case PageChangeEnum.PageMovie:
+        <PageMoviesCard ShowCinema="ShowCinemaClick" />
+        break;
+    case PageChangeEnum.PageCinema:
+        <PageShowCinema Data="_movieId" ShowRoomSeat="ShowRoomSeatClick" />
+        break;
+    case PageChangeEnum.PageSeat:
+        <PageRoomSeat Data="_roomData" MovideId="_movieId" />
+        break;
+    case PageChangeEnum.PageBookingVoucher:
+        <PageBookingVoucher />
+        break;
+    default:
+        <PageMoviesCard ShowCinema="ShowCinemaClick" />
+        break;
+
+}

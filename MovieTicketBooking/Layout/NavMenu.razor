@@ -1,0 +1,24 @@
+﻿@inject PageChangeStateContainer StateContainer
+<header class="header-section header-active">
+    <div class="container">
+        <div class="header-wrapper">
+            <div class="logo">
+                <a href="javascript:void(0);">
+                    <img src="./theme/images/logo/logo.png"
+                         @onclick="Home"
+                         alt="logo">
+
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+@code{
+    async Task Home()
+    {
+        StateContainer.CurrentPage = PageChangeEnum.PageMovie;
+
+    }
+
+}
